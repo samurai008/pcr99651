@@ -23,7 +23,6 @@ for (let i = 0; i < output.length; i++) {
         delete temp['srq']
         delete temp['date_added']
         delete temp['added_by']
-        "comments", "pcr_number", "pcr_status", "pcr_rundate"
         delete temp['comments']
         delete temp['pcr_number']
         delete temp['pcr_status']
