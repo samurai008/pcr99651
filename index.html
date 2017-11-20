@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script type="text/babel">
+            var fs = require('fs');
+            var XLSX = require('xlsx');
+
+
+            var workbook = XLSX.readFile('file.xlsx');
+            //console.log(workbook);
+
+            var sheet_name = workbook.SheetNames[1];
+            var address_of_cell = 'C1';
+
+            /* Get worksheet */
+            var worksheet = workbook.Sheets[sheet_name];
+
+            /* Find desired cell */
+            var desired_cell = worksheet[address_of_cell];
+
+            /* Get the value */
+            var desired_value = (desired_cell ? desired_cell.v : undefined);
+
+            var output = desired_value;
+
+            fs.writeFile("new-file.txt", output, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+
+                console.log("The file was saved!");
+            });
+        </script>
+    </body>
+</html>
